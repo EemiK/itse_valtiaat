@@ -1,10 +1,9 @@
-
 function App() {
 
   return (
-    <>
-      Moi
-    </>
+    <div>
+      <p>Hello world</p>
+    </div>
   )
 }
 
