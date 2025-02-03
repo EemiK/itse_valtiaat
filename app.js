@@ -25,7 +25,7 @@ function showItem(index) {
 
     const item = items[index];
     document.getElementById("item-title").innerText = `${item.Number || "N/A"} ${item.Title || "Title not available"}`;
-    document.getElementById("item-points").innerText = `Points: ${item.Points || "N/A"}`;
+    document.getElementById("item-points").innerText = `Points: ${item.Points/item.Votes || "N/A"}`;
     document.getElementById("item-airdate").innerText = `Airdate: ${item.Airdate || "N/A"}${item.Year || "N/A"}`;
     document.getElementById("item-duration").innerText = `Duration: ${item.Duration || "N/A"}`;
 
@@ -61,7 +61,8 @@ document.getElementById("score-form").addEventListener("submit", async (event) =
         const response = await fetch(`${apiUrl}/${itemId}`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "add": score
             },
             body: JSON.stringify({ score: score })
         });
