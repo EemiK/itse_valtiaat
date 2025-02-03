@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itse Valtiaat</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <title>Item Score List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="item-container">
+        <h1 id="item-title"></h1>
+        <p id="item-points"></p>
+        <p id="item-airdate"></p>
+        <p id="item-duration"></p>
+        <p id="item-year"></p>
+
+        <form id="score-form">
+            <label for="score">Score (1-10):</label>
+            <input type="number" id="score" name="score" min="1" max="10" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="navigation">
+            <button id="prev-btn">Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
 </html>

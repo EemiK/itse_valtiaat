@@ -1,0 +1,56 @@
+/* Set the background image for the entire page */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.cdn.yle.fi/image/upload/f_auto,fl_progressive/q_auto/w_2253,h_1267,c_crop,x_0,y_81/w_1300/v1611656262/39-766261600febf41fc97.jpg');
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Fixes the background image during scrolling */
+    color: white; /* Sets text color to white for contrast */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Use Comic Sans MS font */
+}
+
+/* Additional styles for the container */
+#item-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background to improve readability */
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1, p {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the form */
+form {
+    margin: 20px 0;
+}
+
+input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
