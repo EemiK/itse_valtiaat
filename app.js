@@ -24,8 +24,10 @@ function showItem(index) {
     }
 
     const item = items[index];
+
+    const points = (Number(item.Points)/Number(item.Votes)).toFixed(2);
     document.getElementById("item-title").innerText = `${item.Number || "N/A"} ${item.Title || "Title not available"}`;
-    document.getElementById("item-points").innerText = `Points: ${item.Points/item.Votes || "N/A"}`;
+    document.getElementById("item-points").innerText = `Points: ${points || "N/A"}`;
     document.getElementById("item-airdate").innerText = `Airdate: ${item.Airdate || "N/A"}${item.Year || "N/A"}`;
     document.getElementById("item-duration").innerText = `Duration: ${item.Duration || "N/A"}`;
 
@@ -68,9 +70,11 @@ document.getElementById("score-form").addEventListener("submit", async (event) =
 
         if (response.ok) {
             const result = await response.json();
-            alert(`Score submitted! New score: ${result.newPoints}`);
+            alert(`Score submitted!`);
             // Update points on the page
             document.getElementById("item-points").innerText = `Points: ${result.newPoints}`;
+
+            window.location.reload();
         } else {
             alert("Error submitting score");
         }
