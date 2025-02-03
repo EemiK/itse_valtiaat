@@ -1,4 +1,4 @@
-const apiUrl = "https://backend-itse-valtiaat.onrender.com/api/sheet";
+const apiUrl = "http://localhost:5000/api/sheet";
 let items = [];
 let currentIndex = 0;
 
@@ -62,7 +62,6 @@ document.getElementById("score-form").addEventListener("submit", async (event) =
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "add": score
             },
             body: JSON.stringify({ score: score })
         });
