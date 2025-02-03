@@ -7,7 +7,7 @@ body {
     background-position: center; /* Centers the background image */
     background-attachment: fixed; /* Fixes the background image during scrolling */
     color: white; /* Sets text color to white for contrast */
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Use Comic Sans MS font */
+    font-family: 'Comic Sans MS', serif, sans-serif; /* Use Comic Sans MS font */
 }
 
 /* Additional styles for the container */
