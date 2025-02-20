@@ -2,11 +2,23 @@ const apiUrl = "https://backend-itse-valtiaat.onrender.com/api/sheet";
 let items = [];
 let currentIndex = 0;
 
-async function fetchItems() {
+async function fetchItems(keepIndex = false) {
     try {
         const response = await fetch(`${apiUrl}`);
         if (response.ok) {
-            items = await response.json();
+            const newItems = await response.json();
+
+            if (keepIndex && items.length > 0) {
+                const currentID = items[currentIndex]?.ID;
+                items = newItems;
+
+                const newIndex = items.findIndex(item => item.ID === currentID);
+                currentIndex = newIndex !== -1 ? newIndex: 0;
+            } else {
+                items = newItems;
+                currentIndex = 0;
+            }
+            
             showItem(currentIndex);
             updateScoreboard();
         } else {
@@ -84,6 +96,10 @@ document.getElementById("prevten-btn").addEventListener("click", () => {
     }
 });
 
+document.getElementById("refresh-btn").addEventListener("click", () => {
+    fetchItems(true);
+});
+
 document.getElementById("score-form").addEventListener("submit", async (event) => {
     event.preventDefault();
     
@@ -109,13 +125,9 @@ document.getElementById("score-form").addEventListener("submit", async (event) =
             const result = await response.json();
             alert(`Pisteytetty!`);
 
-            item.Points = result.newPoints;
-            item.Votes = parseFloat(item.Votes) + 1;
-            item.Average = (item.Points / (parseFloat(item.Votes))).toFixed(2);
-
             document.getElementById("score").value = "";
 
-            showItem(currentIndex);
+            fetchItems(true);
             updateScoreboard();
         } else {
             alert("Virhe havaittu pisteyttäessä...");
