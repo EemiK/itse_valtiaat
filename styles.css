@@ -3,10 +3,12 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('https://images.cdn.yle.fi/image/upload/f_auto,fl_progressive/q_auto/w_2253,h_1267,c_crop,x_0,y_81/w_1300/v1611656262/39-766261600febf41fc97.jpg');
-    background-position: center; /* Centers the background image */
-    background-attachment: fixed; /* Fixes the background image during scrolling */
-    color: white; /* Sets text color to white for contrast */
-    font-family: 'Comic Sans MS', serif, sans-serif; /* Use Comic Sans MS font */
+    background-position: center;
+    background-attachment: fixed;
+    background-size: auto;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Comic Sans MS', serif, sans-serif;
 }
 
 .text-style {
