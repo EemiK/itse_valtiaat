@@ -6,10 +6,33 @@
     <title>Itse Valtiaat</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<img src="https://images.cdn.yle.fi/image/upload/f_auto,c_pad,g_south_west,ar_270:148,w_640,q_auto/v1731308653/13-1-50552097-1624356208365" class="center">
 <body>
 
-    <div id="item-container">
+    <button id="toggle-list-view">Näytä Kaikki Jaksot</button>
+    
+    <div id="list-view" style="display: none;">
+        <div>
+            <button id="sort-score">Järjestä Pisteet</button>
+            <button id="sort-number">Järjestä Jaksot</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nimi</th>
+                    <th>Pisteet</th>
+                    <th>Äänet</th>
+                    <th>Ensiesitys</th>
+                    <th>Kesto</th>
+                </tr>
+            </thead>
+            <tbody id="items-table"></tbody>
+        </table>
+    </div>
+
+    <div id="single-view">
+        <img src="public\13-1-50552097-1624356208365.png" class="center">
+
         <h1 id="item-title" class="text-style"></h1>
         <p id="item-points"></p>
         <p id="item-votes"></p>
@@ -34,10 +57,13 @@
         </p>
     </div>
 
+    <div id="scoreboard">
+        <h2 class="text-style">Top 10</h2>
+        <ul id="scoreboard-list"></ul>
+    </div>
+
     <script src="app.js"></script>
+
 </body>
-<div id="scoreboard">
-    <h2 class="text-style">Top 10</h2>
-    <ul id="scoreboard-list"></ul>
-</div>
+
 </html>

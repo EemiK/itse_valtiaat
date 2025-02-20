@@ -30,6 +30,9 @@ async function fetchItems(keepIndex = false) {
 }
 
 function showItem(index) {
+    document.getElementById("list-view").style.display = "none";
+    document.getElementById("scoreboard").style.display = "block";
+    document.getElementById("single-view").style.display = "block";
     if (items.length === 0) {
         document.getElementById("item-title").innerText = "No data available";
         return;
@@ -49,6 +52,28 @@ function showItem(index) {
     document.getElementById("nextten-btn").disabled = index === items.length - 10;
 }
 
+function displayList(listItems) {
+    document.getElementById("list-view").style.display = "block";
+    document.getElementById("scoreboard").style.display = "none";
+    document.getElementById("single-view").style.display = "none";
+
+    const tableBody = document.getElementById("items-table");
+    tableBody.innerHTML = "";
+
+    listItems.forEach((item, index) => {
+        const score = item.Average == "#DIV/0!" ? "N/A" : item.Average;
+        const row = `<tr>
+            <td>${item.Number || index + 1}</td>
+            <td>${item.Title || "Title not available"}</td>
+            <td>${score}</td>
+            <td>${item.Votes || "N/A"}</td>
+            <td>${item.Airdate || "N/A"} ${item.Year || "N/A"}</td>
+            <td>${item.Duration || "N/A"}</td>
+        </tr>`;
+        tableBody.innerHTML += row;
+    });
+}
+
 function updateScoreboard() {
     const sortedItems = [...items].sort((a, b) => parseFloat(b.Average.replace(",", ".")) - parseFloat(a.Average.replace(",", "."))).slice(0, 10);
 
@@ -61,6 +86,29 @@ function updateScoreboard() {
         scoreboardList.appendChild(listItem);
     })
 }
+
+document.getElementById("toggle-list-view").addEventListener("click", () => {
+    if (document.getElementById("list-view").style.display === "none") {
+        displayList(items);
+    } else {
+        showItem(currentIndex);
+    }
+});
+
+document.getElementById("sort-score").addEventListener("click", () => {
+
+    listItems = [...items].sort((a, b) => {
+            const aScore = parseFloat(a.Average.replace(",", "."));
+            const bScore = parseFloat(b.Average.replace(",", "."));
+            return bScore - aScore;
+    });
+    
+    displayList(listItems);
+});
+
+document.getElementById("sort-number").addEventListener("click", () => {
+    displayList(items);
+});
 
 document.getElementById("next-btn").addEventListener("click", () => {
     if (currentIndex < items.length - 1) {

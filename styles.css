@@ -41,11 +41,11 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 100%;
 }  
 
 /* Additional styles for the container */
-#item-container {
+#single-view {
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background to improve readability */
     padding: 20px;
     border-radius: 10px;
@@ -119,4 +119,30 @@ input[type="number"] {
 input[type="number"]:focus {
     border-color: #007bff;
     outline: none;
+}
+
+#list-view {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+table {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.2);
 }
