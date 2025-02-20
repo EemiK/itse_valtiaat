@@ -1,5 +1,6 @@
 const apiUrl = "https://backend-itse-valtiaat.onrender.com/api/sheet";
 let items = [];
+let sort = true;
 let currentIndex = 0;
 
 async function fetchItems(keepIndex = false) {
@@ -54,6 +55,8 @@ function showItem(index) {
 
 function displayList(listItems) {
     document.getElementById("list-view").style.display = "block";
+    document.getElementById("sort-score").style.display = sort ? "" : "none";
+    document.getElementById("sort-number").style.display = sort ? "none" : "block";
     document.getElementById("scoreboard").style.display = "none";
     document.getElementById("single-view").style.display = "none";
 
@@ -96,7 +99,7 @@ document.getElementById("toggle-list-view").addEventListener("click", () => {
 });
 
 document.getElementById("sort-score").addEventListener("click", () => {
-
+    sort = !sort;
     listItems = [...items].sort((a, b) => {
             const aScore = parseFloat(a.Average.replace(",", "."));
             const bScore = parseFloat(b.Average.replace(",", "."));
@@ -107,6 +110,7 @@ document.getElementById("sort-score").addEventListener("click", () => {
 });
 
 document.getElementById("sort-number").addEventListener("click", () => {
+    sort = !sort;
     displayList(items);
 });
 
