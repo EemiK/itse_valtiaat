@@ -20,8 +20,37 @@ body {
     text-align: center;
 }
 
-h1, p {
-    margin: 10px 0;
+#scoreboard {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background to improve readability */
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 50px auto;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #ffff, #ff2e63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 10px rgba(255, 46, 99, 0.5);
+    letter-spacing: 2px;
+    margin: 20px 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 button {
