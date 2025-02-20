@@ -54,10 +54,10 @@ p {
 /* Additional styles for the container */
 #single-view {
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background to improve readability */
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     width: 90%;
-    margin: 50px auto;
+    margin: auto;
     text-align: center;
 }
 
@@ -135,7 +135,7 @@ input[type="number"]:focus {
 
 table {
     width: 90%;
-    max-width: 800px;
+    max-width: 500px;
     margin: auto;
     border-collapse: collapse;
     background: rgba(0, 0, 0, 0.6);
