@@ -70,8 +70,6 @@ function displayList(listItems) {
             <td>${item.Title || "Title not available"}</td>
             <td>${score}</td>
             <td>${item.Votes || "N/A"}</td>
-            <td>${item.Airdate || "N/A"} ${item.Year || "N/A"}</td>
-            <td>${item.Duration || "N/A"}</td>
         </tr>`;
         tableBody.innerHTML += row;
     });
