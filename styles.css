@@ -5,7 +5,7 @@ body {
     background-image: url('https://images.cdn.yle.fi/image/upload/f_jpg,c_limit,w_1920,h_1920,q_auto/v1731308653/13-1-50552097-1624356798509.jpg');
     background-position: center;
     background-attachment: fixed;
-    background-size: auto;
+    background-size: 100%;
     background-repeat: no-repeat;
     color: white;
     font-family: 'Comic Sans MS', serif, sans-serif;
