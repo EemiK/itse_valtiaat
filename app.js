@@ -192,3 +192,6 @@ document.getElementById("score-form").addEventListener("submit", async (event) =
 
 // Initialize the app
 fetchItems();
+if (items.length == 0) {
+  alert("Backend may take up to 60 seconds to start. Please try again in a moment.");
+}
